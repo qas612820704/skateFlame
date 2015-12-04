@@ -1,0 +1,38 @@
+<nav>
+  <div class="nav-wrapper yellow darken-1">
+    <a href="#" class="brand-logo logo">
+      <img src="img/logo.png">
+    </a>
+    <a 
+      href="#" 
+      class="button-collapse"
+      data-activates="mobile-menu"
+      data-activates="nav-mobile"
+      data-sidenav="left"
+      data-menuwidth="500"
+      data-closeonclick="false">
+        <i class="material-icons">menu</i>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
+        <a href="#/{{ item.href }}">
+          {{ item.name }}
+        </a>
+      </li>
+      <!-- <li><a class="dropdown-button" data-activates="dropdown1" dropdown>Dropdown</a></li>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul> -->
+    </ul>
+    <ul class="side-nav" id="mobile-menu">
+      <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
+        <a href="#/{{ item.href }}">
+          {{ item.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
