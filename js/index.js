@@ -17,7 +17,7 @@ skateApp.config(function($routeProvider) {
   .otherwise({
     redirectTo: '/'
   });
-  
+  $('img#justfont-badge').css('display','none');
 });
 
 skateApp.directive('menubar', function($location) {
