@@ -23,6 +23,7 @@ body {
 }
 .info>img.bg {
   min-height: 400px;
+  max-height: 100vh;
   min-width: 100%;
   top: 0;
 }
