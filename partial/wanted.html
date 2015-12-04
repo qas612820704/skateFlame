@@ -1,14 +1,46 @@
-<div class="col s12">
-  <div class="info">
-    <div class="mask"></div>
-    <img class="bg" src="img/wanted.jpg">
-    <div class="content">
-      <div class="center">
-        <div class="text">
-          <h3><b>溜島俠</b></h3>
-          <h3><b>~ 全面招募中 ~</b></h3>
+<section id="headImg">
+  <div class="col s12">
+    <div class="info">
+      <div class="mask"></div>
+      <img class="bg" src="img/wanted.jpg">
+      <div class="content">
+        <div class="center">
+          <div class="text">
+            <h3><b>溜島俠</b></h3>
+            <h3><b>~ 全面招募中 ~</b></h3>
+          </div>
+        </div>
+        <div class="foot yellow darken-1">
+          <p>了解更多</p>
+          <i class="material-icons">fast_forward</i>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section id="intro">
+  <!-- <h1 class="center">關於我們</h1> -->
+</section>
+
+<section id="category">
+  <div class="container">
+    <div class="row center">
+      <h2>工人招募</h2>
+      <div class="col s12 m6 l4 workpart" ng-repeat="item in feed">
+        <img src="{{ item.picture }}" alt="">
+        <h4>
+          <i class="small material-icons deep-orange-text text-deep-orange">{{ item.icon}}</i>
+          {{ item.class }}
+        </h4>
+        <h5>{{ item.intro }}</h5>
+        <div class="wanting deep-orange lighten-4">
+          <div class="has deep-orange" style="width: {{ item.have/item.want * 100}}%">
+          </div>
+          <p>招募進度 : {{ item.have }} / {{ item.want }} 人</p>
+        </div>
+        <p>內容 : {{ item.detail }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -32,7 +32,7 @@ skateApp.directive('menubar', function($location) {
         href: '',
       },
       {
-        name: 'Wanted',
+        name: '工人招募',
         href: 'wanted',
       },
     ],
@@ -56,5 +56,15 @@ skateApp.directive('menubar', function($location) {
 });
 
 skateApp.controller('mainCtrl', function($scope) {
-    $scope.helloWorld = "Hello World!";
+  $scope.helloWorld = "Hello World!";
+});
+
+skateApp.controller('wantedCtrl', function($scope) {
+  var parser = new SpreadsheetSoup('1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0', function(feed) {
+    $scope.$apply(function() {
+      $scope.feed = feed;
+    });
+    console.log(feed);
+  });
+  $scope.data = [12,34,123,41,234,1,324,132,4];
 });

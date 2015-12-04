@@ -1,5 +1,5 @@
 <nav>
-  <div class="nav-wrapper yellow darken-1">
+  <div class="nav-wrapper yellow darken-1 nopos">
     <a href="#" class="brand-logo logo">
       <img src="img/logo.png">
     </a>
@@ -27,12 +27,13 @@
         <li><a href="#!">three</a></li>
       </ul> -->
     </ul>
-    <ul class="side-nav" id="mobile-menu">
-      <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
-        <a href="#/{{ item.href }}">
-          {{ item.name }}
-        </a>
-      </li>
-    </ul>
   </div>
+  <ul class="side-nav" id="mobile-menu">
+    <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
+      <a href="#/{{ item.href }}">
+        {{ item.name }}
+      </a>
+    </li>
+  </ul>
 </nav>
+
