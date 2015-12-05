@@ -14,6 +14,10 @@ skateApp.config(function($routeProvider) {
     controller: 'wantedCtrl',
     templateUrl: 'partial/wanted.html'
   })
+  .when('/ask', {
+    controller: 'askCtrl',
+    templateUrl: 'partial/ask.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
@@ -28,13 +32,13 @@ skateApp.directive('menubar', function($location) {
     },
     items: [
       {
-        name: 'Home',
-        href: '',
-      },
-      {
         name: '工人招募',
         href: 'wanted',
       },
+      {
+        name: '問與答',
+        href: 'ask'
+      }
     ],
     isActive: function(item) {
       var active = ( '/'+ item.href === $location.path());
@@ -66,5 +70,8 @@ skateApp.controller('wantedCtrl', function($scope) {
     });
     console.log(feed);
   });
-  $scope.data = [12,34,123,41,234,1,324,132,4];
+});
+
+skateApp.controller('askCtrl', function($scope) {
+
 });
