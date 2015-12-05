@@ -13,6 +13,7 @@ nav.nopos {
  }
  a.logo>img {
   height: 100%;
+  width: initial !important;
  }
 
 .info {
