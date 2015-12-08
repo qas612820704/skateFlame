@@ -15,11 +15,16 @@
   </div>
   <div class="col s12 m10">
     <div class="col s12 m12 l6">
-      <div class="col s12">
+      <div class="col s12 center">
+        <h5>{{fed.title}}</h5>
         <img materialboxed src="{{fed.mainimg}}" alt="">
       </div>
       <div class="col s4" ng-repeat="img in fed.img track by $index">
         <img materialboxed src="{{img}}" alt="">
+      </div>
+      <div class="col s12 center">
+        <h5>內容描述</h5>
+        <p> {{fed.content}}</p>
       </div>
     </div>
     <div class="col s12 m12 l6">
