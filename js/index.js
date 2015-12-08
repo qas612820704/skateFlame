@@ -78,7 +78,7 @@ skateApp.directive('menubar', function($location) {
   var datas = {
     logo: {
       img: 'img/logo.png',
-      href: '#/',
+      href: '#!/',
     },
     items: [
       {
