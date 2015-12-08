@@ -1,41 +1,29 @@
-<div class="container">
-	<div class="row">
-		<div class="col s12 center">
-			<h3>討論</h3>
-		</div>
-		<div class="col s12 m6">
-			<img src="img/flameFlag.png" alt="">
-		</div>
-		<div class="col s12 m6">
-			<div id="disqus_thread"></div>
-		</div>
+<div class="row center">
+  <h4>聖火討論串</h4>
 </div>
-
-
-
-
-
-
-
-
-<script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() {  // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        
-        s.src = '//skateflame.disqus.com/embed.js';
-        
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div class="row">
+  <div class="col s12 m2">
+    <div class="collection">
+      <a
+        ng-repeat="item in feed"
+        ng-class="{active: isActive(item)}"
+        class="collection-item"
+        href="#!/ask/{{item.id}}">
+          {{ item.tabname }}
+      </a>
+    </div>
+  </div>
+  <div class="col s12 m10">
+    <div class="col s12 m12 l6">
+      <div class="col s12">
+        <img materialboxed src="{{fed.mainimg}}" alt="">
+      </div>
+      <div class="col s4" ng-repeat="img in fed.img track by $index">
+        <img materialboxed src="{{img}}" alt="">
+      </div>
+    </div>
+    <div class="col s12 m12 l6">
+      <div disqus="id"></div>
+    </div>
+  </div>
+</div>
