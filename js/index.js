@@ -26,6 +26,10 @@ skateApp.config(function($routeProvider,$locationProvider, $disqusProvider) {
     controller: 'askCtrl',
     templateUrl: 'partial/ask.html'
   })
+  .when('/works', {
+    controller: 'worksCtrl',
+    templateUrl: 'partial/works.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
@@ -88,6 +92,10 @@ skateApp.directive('menubar', function($location) {
       {
         name: '問與答',
         href: 'ask'
+      },
+      {
+        name: '作品集',
+        href: 'works'
       }
     ],
     isActive: function(item) {
@@ -213,4 +221,23 @@ skateApp.controller('askCtrl', function($scope, $routeParams) {
     return active;
   }
   $scope.id = $routeParams.tab;
+});
+
+skateApp.controller('worksCtrl', function($scope,$sce) {
+  new SpreadsheetSoup(
+    '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
+    '3',
+    function(feed) {
+      console.log(feed);
+      for (var i = 0; i < feed.length; i++) {
+        feed[i].link = $sce.trustAsResourceUrl(feed[i].link);
+      };
+      $scope.$apply(function() {
+        $scope.feed = feed;
+      });
+      console.log(feed);
+    },
+    function(err) {
+      console.log(err);
+    });
 });
