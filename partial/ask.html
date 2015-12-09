@@ -14,21 +14,33 @@
     </div>
   </div>
   <div class="col s12 m10">
-    <div class="col s12 m12 l6">
-      <div class="col s12 center">
-        <h5>{{fed.title}}</h5>
-        <img materialboxed src="{{fed.mainimg}}" alt="">
+    <div class="row">
+      <div class="col s12 m3">
+        <div class="col s12">
+          <img materialboxed src="{{fed.mainimg}}" class="ask" alt="">
+        </div>
+        <div class="col s4" ng-repeat="img in fed.img track by $index">
+          <img materialboxed src="{{img}}" class="subask" alt="">
+        </div>
       </div>
-      <div class="col s4" ng-repeat="img in fed.img track by $index">
-        <img materialboxed src="{{img}}" alt="">
-      </div>
-      <div class="col s12 center">
-        <h5>內容描述</h5>
-        <p> {{fed.content}}</p>
+      <div class="col s12 m9"> 
+        <div class="row">
+          <div class="col s12">
+            <h4>
+              標題 : {{fed.title}}
+            </h4>
+            <div class="divider"></div>
+            <p>
+              {{fed.content}}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col s12 m12 l6">
-      <div disqus="id"></div>
+    <div class="row">
+      <div class="col s12">
+        <div disqus="id"></div>
+      </div>
     </div>
   </div>
 </div>
