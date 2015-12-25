@@ -5,7 +5,7 @@ var skateApp = angular.module("skateFlameApp",
     'ui.materialize',
   ]);
 
-skateApp.config(function($routeProvider,$locationProvider, $disqusProvider) {
+skateApp.config(['$routeProvider','$locationProvider','$disqusProvider', function($routeProvider,$locationProvider, $disqusProvider) {
   $routeProvider
   .when('/', {
     controller: 'mainCtrl',
@@ -36,10 +36,10 @@ skateApp.config(function($routeProvider,$locationProvider, $disqusProvider) {
   $('img#justfont-badge').css('display','none');
   $locationProvider.hashPrefix('!');
   $disqusProvider.setShortname('skateFlame');
-});
+}]);
 
-skateApp.run(['$rootScope', '$window',
-  function($rootScope, $window) {
+skateApp.run(['$rootScope', '$window', '$location', 
+  function($rootScope, $window, $ln) {
 
   $window.fbAsyncInit = function() {
     // Executed when the SDK is loaded
@@ -58,9 +58,14 @@ skateApp.run(['$rootScope', '$window',
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+  $rootScope.goto = function(path) {
+    $ln.path(path);
+  }
+
 }]);
 
-skateApp.factory('facebookService', function($q) {
+skateApp.factory('facebookService', ['$q', function($q) {
   return {
     getMyLastName: function() {
       var deferred = $q.defer();
@@ -76,31 +81,30 @@ skateApp.factory('facebookService', function($q) {
       return deferred.promise;
     }
   }
-});
+}]);
 
-skateApp.directive('menubar', function($location) {
+skateApp.directive('menubar', ['$location', function($location) {
   var datas = {
     logo: {
       img: 'img/logo.png',
-      href: '#!/',
+      href: '/',
     },
     items: [
       {
         name: '工人招募',
-        href: 'wanted',
+        href: '/wanted',
       },
       {
         name: '問與答',
-        href: 'ask'
+        href: '/ask'
       },
       {
         name: '作品集',
-        href: 'works'
+        href: '/works'
       }
     ],
     isActive: function(item) {
-      var active = ( '/'+ item.href === $location.path());
-      return active;
+      return $location.path().startsWith(item.href);
     },
   };
   window.datas = datas;
@@ -115,7 +119,7 @@ skateApp.directive('menubar', function($location) {
       // window.attr = attr;
     },
   };
-});
+}]);
 
 skateApp.directive('fbpage', [ 
   '$window', function($window) {
@@ -159,11 +163,11 @@ skateApp.directive('fbpage', [
   }
 ]);
 
-skateApp.controller('mainCtrl', function($scope) {
+skateApp.controller('mainCtrl', ['$scope', function($scope) {
 
-});
+}]);
 
-skateApp.controller('wantedCtrl', function($scope) {
+skateApp.controller('wantedCtrl', ['$scope', function($scope) {
   var parser = new SpreadsheetSoup(
       '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
       '1',
@@ -176,9 +180,9 @@ skateApp.controller('wantedCtrl', function($scope) {
       function(err) {
         console.log(err);
       });
-});
+}]);
 
-skateApp.controller('askCtrl', function($scope, $routeParams) {
+skateApp.controller('askCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
   new SpreadsheetSoup(
     '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
     '2',
@@ -221,9 +225,9 @@ skateApp.controller('askCtrl', function($scope, $routeParams) {
     return active;
   }
   $scope.id = $routeParams.tab;
-});
+}]);
 
-skateApp.controller('worksCtrl', function($scope,$sce) {
+skateApp.controller('worksCtrl', ['$scope', '$sce', function($scope,$sce) {
   new SpreadsheetSoup(
     '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
     '3',
@@ -240,4 +244,4 @@ skateApp.controller('worksCtrl', function($scope,$sce) {
     function(err) {
       console.log(err);
     });
-});
+}]);

@@ -1,0 +1,12 @@
+nav.nopos {
+  position: absolute;
+  z-index: 99;
+}
+ a.logo {
+  height: 100%;
+  padding: 8px;
+ }
+ a.logo>img {
+  height: 100%;
+  width: initial !important;
+ }

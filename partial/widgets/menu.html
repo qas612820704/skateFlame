@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper yellow darken-1 nopos">
-    <a href="{{ logo.href }}" class="brand-logo logo">
+    <a class="brand-logo logo" ng-click="goto(logo.href)">
       <img src="{{ logo.img }}">
     </a>
     <a 
@@ -15,9 +15,7 @@
     </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
-        <a class="black-text" href="#!/{{ item.href }}">
-          {{ item.name }}
-        </a>
+        <a class="black-text" ng-click="goto(item.href)" ng-bind="item.name"></a>
       </li>
       <!-- <li><a class="dropdown-button" data-activates="dropdown1" dropdown>Dropdown</a></li>
       <ul id="dropdown1" class="dropdown-content">
@@ -30,9 +28,7 @@
   </div>
   <ul class="side-nav" id="mobile-menu">
     <li ng-repeat="item in items" ng-class="{active: isActive(item)}">
-      <a href="#/{{ item.href }}">
-        {{ item.name }}
-      </a>
+      <a ng-click="goto(item.href)" ng-bind="item.name"></a>
     </li>
   </ul>
 </nav>
