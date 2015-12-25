@@ -2,7 +2,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     uglify: {
       options: {
-        mangle: false
+        mangle: false,
+        sourceMap: true
       },
       index: {
         files: {
@@ -13,7 +14,7 @@ module.exports = function(grunt) {
         files: {
           'assets/js/bundle.min.js': [
             'bower_components/jquery/dist/jquery.min.js',
-            'bower_components/Materialize/dist/js/materialize.min.js',
+            'bower_components/materialize/dist/js/materialize.min.js',
             'bower_components/angular/angular.min.js',
             'bower_components/angular-route/angular-route.min.js',
             'bower_components/angular-materialize/src/angular-materialize.js',
@@ -39,7 +40,7 @@ module.exports = function(grunt) {
         shorthandCompacting: false,
         roundingPrecision: -1,
       },
-      target: {
+      index: {
         files: {
           'dist/css/style.min.css': ['dist/css/style.css']
         }
@@ -47,7 +48,7 @@ module.exports = function(grunt) {
       bundle: {
         files: {
           'assets/css/bundle.min.css': [
-            'bower_components/Materialize/dist/css/materialize.min.css',
+            'bower_components/materialize/dist/css/materialize.min.css',
           ]
         }
       }
