@@ -47,11 +47,15 @@ skateApp.run(['$rootScope', '$window', '$location',
 
   $('img#justfont-badge').css('display','none');
 
-
-
   $rootScope.goto = function(path) {
     $ln.path(path);
   }
+
+  $rootScope.$on('$viewContentLoaded', function(){
+    setTimeout(function() {
+      $('#main-loader').fadeOut();
+    }, 3000);
+  });
 
 }]);
 
@@ -94,11 +98,7 @@ skateApp.directive('menubar', ['$location', function($location) {
 }]);
 
 skateApp.controller('mainCtrl', ['$scope', function($scope) {
-  $scope.$on('$viewContentLoaded', function(){
-    setTimeout(function() {
-      $('#main-loader').fadeOut();
-    }, 3000);
-  });
+
 }]);
 
 skateApp.controller('wantedCtrl', ['$scope', function($scope) {

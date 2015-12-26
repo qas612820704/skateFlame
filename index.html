@@ -20,6 +20,13 @@
   <script src="dist/js/app.min.js"></script>
 </head>
 <body>
+    <div id="main-loader" class="on-load yellow darken-2 center" ng-class="{hide: ready}">
+      <div class="loader">
+        <img src="img/cookie.jpg" alt="">
+        <h3>Loading...</h3>
+      </div>
+    </div>
+  </div>
   <menubar></menubar>
   <div ng-view></div>
 </body>
