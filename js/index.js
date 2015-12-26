@@ -54,7 +54,7 @@ skateApp.run(['$rootScope', '$window', '$location',
   $rootScope.$on('$viewContentLoaded', function(){
     setTimeout(function() {
       $('#main-loader').fadeOut();
-    }, 3000);
+    }, 1000);
   });
 
 }]);
