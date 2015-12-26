@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             'bower_components/angular-materialize/src/angular-materialize.js',
             'bower_components/angular-disqus/angular-disqus.min.js',
             'bower_components/spreadsheetSoup/spreadsheetSoup.js',
-            //'bower_components/angular-facebook/lib/angular-facebook.js',
+            'bower_components/angular-facebook/lib/angular-facebook.js',
           ],
         }
       }
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
       },
       scss: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass:app'],
+        tasks: ['sass:app', 'cssmin:index'],
       }
     },
   });

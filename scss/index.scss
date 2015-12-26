@@ -1,0 +1,34 @@
+@import 'animate';
+
+.on-load {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  // background-image: url("../../img/cookie.jpg");
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  .loader {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: solid;
+      border-width: 2px;
+      border-color: yellow;
+      @include rotate(2s linear normal none infinite);
+    }
+    h3 {
+      font-family: 'dejavu sans mono';
+      @include blink(2s ease 0.5s normal none infinite);
+    }
+  }
+
+
+}

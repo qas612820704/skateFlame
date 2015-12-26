@@ -1,0 +1,60 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+};
+
+@-moz-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin rotate($parm) {
+  -webkit-animation: $parm rotate;
+  -moz-animation:    $parm rotate;
+  -o-animation:      $parm rotate;
+  animation:         $parm rotate;
+}
+
+@-webkit-keyframes blink {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+@keyframes blink {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+
+@mixin blink($parm) {
+  -webkit-animation: $parm blink;
+  -moz-animation:    $parm blink;
+  -o-animation:      $parm blink;
+  animation:         $parm blink;
+}

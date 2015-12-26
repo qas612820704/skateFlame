@@ -23,6 +23,8 @@
     "Materialize": "materialize#~0.97.3",
     "angular-materialize": "*",
     "spreadsheetSoup": "qas612820704/spreadsheetSoup",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "angular-disqus": "~1.1.0",
+    "angular-facebook": "~0.2.3"
   }
 }
