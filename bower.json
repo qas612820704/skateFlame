@@ -25,6 +25,7 @@
     "spreadsheetSoup": "qas612820704/spreadsheetSoup",
     "font-awesome": "~4.5.0",
     "angular-disqus": "~1.1.0",
-    "angular-facebook": "~0.2.3"
+    "angular-facebook": "~0.2.3",
+    "angular-scroll": "~1.0.0"
   }
 }

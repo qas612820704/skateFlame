@@ -1,5 +1,5 @@
 body {
-  font-family: "Times New Roman", "sourcehansans-tc";
+  font-family: "Sans serif";
   font-weight: "400";
   background-color: #F8F8F8;
 }
@@ -181,6 +181,17 @@ img.subask {
     opacity: 1.0;
   }
 }
+.shadow-text {
+  background-color: rgba(225, 225, 225, 0.7);
+}
+.shadow-text * {
+  text-shadow: 1px 1px white;
+}
+
+.shadow-black-text * {
+  text-shadow: 1px 1px black;
+}
+
 .on-load {
   display: table;
   width: 100%;

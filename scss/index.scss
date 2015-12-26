@@ -1,4 +1,15 @@
 @import 'animate';
+.shadow-text {
+  background-color: rgba(225,225,225,0.7);
+  * {
+    text-shadow: 1px 1px white;
+  }
+}
+.shadow-black-text {
+  * {
+    text-shadow: 1px 1px black;
+  }
+} 
 
 .on-load {
   display: table;
