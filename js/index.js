@@ -5,6 +5,10 @@ var skateApp = angular.module("skateFlameApp",
     'ui.materialize',
 
     'facebook',
+
+    'myApp.controllers',
+    'myApp.directives',
+    'myApp.services',
   ]);
 
 skateApp.config(['$routeProvider','$locationProvider','$disqusProvider', 'FacebookProvider', function($routeProvider,$locationProvider, $disqusProvider, FbPvidr) {
@@ -32,6 +36,14 @@ skateApp.config(['$routeProvider','$locationProvider','$disqusProvider', 'Facebo
     controller: 'worksCtrl',
     templateUrl: 'partial/works.html'
   })
+  .when('/workers', {
+    controller: 'workersCtrl',
+    templateUrl: 'partial/workers.html'
+  })
+  .when('/question', {
+    controller: 'questionCtrl',
+    templateUrl: 'partial/question.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
@@ -57,125 +69,4 @@ skateApp.run(['$rootScope', '$window', '$location',
     }, 1000);
   });
 
-}]);
-
-skateApp.directive('menubar', ['$location', function($location) {
-  var datas = {
-    logo: {
-      img: 'img/logo.png',
-      href: '/',
-    },
-    items: [
-      {
-        name: '工人招募',
-        href: '/wanted',
-      },
-      {
-        name: '問與答',
-        href: '/ask'
-      },
-      {
-        name: '作品集',
-        href: '/works'
-      }
-    ],
-    isActive: function(item) {
-      return $location.path().startsWith(item.href);
-    },
-  };
-  window.datas = datas;
-  return {
-    templateUrl: 'partial/widgets/menu.html',
-    link: function (scope, element, attr) {
-      for (var data in datas) {
-        scope[data] = datas[data];
-      }
-      // window.scope = scope;
-      // window.element = element;
-      // window.attr = attr;
-    },
-  };
-}]);
-
-skateApp.controller('mainCtrl', ['$scope', function($scope) {
-
-}]);
-
-skateApp.controller('wantedCtrl', ['$scope', function($scope) {
-  var parser = new SpreadsheetSoup(
-      '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
-      '1',
-      function(feed) {
-        $scope.$apply(function() {
-          $scope.feed = feed;
-        });
-        console.log(feed);
-      },
-      function(err) {
-        console.log(err);
-      });
-}]);
-
-skateApp.controller('askCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-  new SpreadsheetSoup(
-    '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
-    '2',
-    function(feed) {
-      /* Search specify feed */
-      console.log(feed);
-      for (var i = 0; i < feed.length; i++) {
-        result = [];
-        if( feed[i].id == $routeParams.tab) {
-          fed = feed[i];
-        }
-        /* Set img to array*/
-        for (var key in feed[i]) {
-          if (key.startsWith('img')) {
-            result.push(feed[i][key]);
-            delete feed[i][key];
-          }
-        }
-        if (result) {
-          feed[i]['img'] = result;
-        }
-        /* end set img to array*/
-      }
-      $scope.$apply(function() {
-        $scope.feed = feed;
-        if (fed) {
-          $scope.fed = fed;
-        }
-      });
-    },
-    function(err) {
-      console.log(err);
-    }
-  );
-  $scope.changePage = function(page) {
-    console.log(page);
-  }
-  $scope.isActive = function(item) {
-    var active = ( '/'+ item.id === $routeParams.tab);
-    return active;
-  }
-  $scope.id = $routeParams.tab;
-}]);
-
-skateApp.controller('worksCtrl', ['$scope', '$sce', function($scope,$sce) {
-  new SpreadsheetSoup(
-    '1w9vTUKWXdQoz5oaDBlhIVcCst8knaGzsAcKBhYSsZr0',
-    '3',
-    function(feed) {
-      console.log(feed);
-      for (var i = 0; i < feed.length; i++) {
-        feed[i].link = $sce.trustAsResourceUrl(feed[i].link);
-      };
-      $scope.$apply(function() {
-        $scope.feed = feed;
-      });
-      console.log(feed);
-    },
-    function(err) {
-      console.log(err);
-    });
-}]);
+}])

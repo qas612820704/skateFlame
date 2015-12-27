@@ -1,0 +1,13 @@
+<section id="q-and-a">
+  <div class="row container">
+    <div class="col m6 s12" ng-repeat="qa in feed">
+      <div class="padding-10">
+        <h6>
+          <i class="fa fa-odnoklassniki"></i>
+          <b class="margin-left-10" ng-bind="qa.q"></b>
+        </h6>
+        <p class="margin-left-30"><i class="fa fa-hand-o-right"></i><span class="margin-left-10" ng-bind="qa.a"></span></p>
+      </div>
+    </div>
+  </div>
+</section>
