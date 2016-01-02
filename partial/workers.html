@@ -27,7 +27,7 @@
           <h5 ng-bind="worker.name" class="inline"></h5>
         </div>
         <div class="col s12">
-          <p ng-bind="worker.describe"></p>
+          <p ng-bind-html="worker.describe | breakLine"></p>
           <blockquote ng-bind="worker.motto">
           </blockquote>
           <a href="{{worker.fblink}}" target="_blank">

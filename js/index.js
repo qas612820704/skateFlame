@@ -1,6 +1,7 @@
 var skateApp = angular.module("skateFlameApp",
   [
     'ngRoute',
+    'ngSanitize',
     'ngDisqus',
     'ui.materialize',
 
@@ -9,6 +10,7 @@ var skateApp = angular.module("skateFlameApp",
     'myApp.controllers',
     'myApp.directives',
     'myApp.services',
+    'myApp.filters',
   ]);
 
 skateApp.config(['$routeProvider','$locationProvider','$disqusProvider', 'FacebookProvider', function($routeProvider,$locationProvider, $disqusProvider, FbPvidr) {

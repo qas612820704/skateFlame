@@ -57,13 +57,13 @@ angular.module('myApp.controllers', [])
 .controller('workersCtrl', ['$scope', 'spSheet', function($sp,spSheet) {
   spSheet('4',function(feed) {
     $sp.feed = feed;
-  },console.err);
+  },err);
 }])
 
 .controller('questionCtrl', ['$scope', 'spSheet', function($sp,spSheet) {
   spSheet('5',function(feed) {
     $sp.feed = feed;
-  },console.err);
+  },err);
 }])
 
 function err(err) {

@@ -21,7 +21,8 @@ module.exports = function(grunt) {
             'bower_components/angular-disqus/angular-disqus.min.js',
             'bower_components/spreadsheetSoup/spreadsheetSoup.js',
             'bower_components/angular-facebook/lib/angular-facebook.js',
-            'bower_components/angular-scroll/angular-scroll.min.js'
+            'bower_components/angular-scroll/angular-scroll.min.js',
+            'bower_components/angular-sanitize/angular-sanitize.min.js',
           ],
         }
       }

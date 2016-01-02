@@ -280,7 +280,7 @@ img.subask {
   margin-top: 20px;
 }
 #worker-intro .worker img {
-  max-height: 200px;
+  height: 200px;
   border-radius: 2%;
 }
 #worker-intro .worker .inline {
